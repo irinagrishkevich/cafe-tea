@@ -1,0 +1,60 @@
+<div class="container py-5">
+  <div class="item rounded">
+    <img src="../../../../assets/img/1banner.png" class="w-100" alt="banner1">
+  </div>
+  <h2 class="text-center my-5">Ответы на часто задаваемые вопросы</h2>
+  <div class="col-lg-8 mx-auto pb-4">
+
+    <div id="accordion">
+      <h3 class="text-light bg-primary bg-gradient py-3 rounded my-2 pe-5">Собираете ли вы подарочные боксы?</h3>
+      <div class="border-0">
+        <p>
+          Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и стоимость!
+        </p>
+      </div>
+      <h3 class="text-light bg-primary bg-gradient py-3 rounded my-2 pe-5">Сколько у вас разновидностей чая?</h3>
+      <div class="border-0">
+        <p>
+          Существует 6 основных сортов чая: зеленый, белый, желтый, улун, черный и пуэр. Они различаются по
+          степени ферментации — то есть насколько сильно окислилось сырье перед сушкой.
+        </p>
+      </div>
+      <h3 class="text-light bg-primary bg-gradient py-3 rounded my-2 pe-5">В какой срок осуществляется доставка?</h3>
+      <div class="border-0">
+        <p>
+          Нормативный срок доставки грузов и порожних вагонов, за исключением перевозки животных, исчисляется
+          из расчета нормативного срока 550 км в сутки независимо от расстояния перевозки.
+        </p>
+      </div>
+      <h3 class="text-light bg-primary bg-gradient py-3 rounded my-2 pe-5">У вас обновляется ассортимент?</h3>
+      <div class="border-0">
+        <p>
+          Обновление всех категорий товаров - один, два раза в неделю.
+        </p>
+      </div>
+      <h3 class="text-light bg-primary bg-gradient py-3 rounded my-2 pe-5">Какого объема у вас пачки чая?</h3>
+      <div class="border-0">
+        <p>Маленькие 50-граммовые</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="backdrop position-relative" [ngStyle]="{'display':display}"></div>
+<div class="modal position-fixed " tabindex="-1" role="dialog"  [ngStyle]="{'display':display} " (click)="onCloseHandled()">
+  <div class="modal-dialog left-0" role="document">
+    <div class="modal-content">
+      <div class="modal-header d-flex justify-content-between">
+        <h4 class="modal-title">Посмотрите наши чайные коллекции</h4>
+        <button  type="button" class="close btn border-0 bg-transparent " aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default text-bg-primary" [routerLink]="'/products'" >Смотреть</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

@@ -1,0 +1,26 @@
+<header>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+      <a class="navbar-brand mt-2" href="#">Logo</a>
+      <button class="navbar-toggler mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse mt-2" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" [routerLink]="''" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Главная</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  [routerLink]="'/products'" routerLinkActive="active" >Каталог</a>
+          </li>
+        </ul>
+      </div>
+      <form class="d-flex mt-2" role="search">
+        <input class="form-control me-2" type="search" name="searchQuery" placeholder="Поиск чая" aria-label="Search">
+        <button class="btn btn-outline-primary hvr-back-pulse overflow-visible" type="submit">Найти</button>
+        <button class="btn btn-outline-secondary" type="button">Сбросить</button>
+      </form>
+    </div>
+  </nav>
+</header>

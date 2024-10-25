@@ -1,1 +1,59 @@
-/* You can add global styles to this file, and also import other style files */
+.ui-state-active .ui-icon, .ui-button:active .ui-icon {
+  background-image: url("assets/img/active.png") !important;
+  position: absolute !important;
+  right: 10px!important;
+}
+.ui-icon, .ui-widget-content .ui-icon {
+  background-image: url("assets/img/no-active.png") !important;
+  position: absolute !important;
+  right: 10px !important;
+}
+
+.ui-state-hover .ui-icon, .ui-state-focus .ui-icon, .ui-button:hover .ui-icon, .ui-button:focus .ui-icon{
+  background-image: url("assets/img/active.png") !important;
+  position: absolute !important;
+  right: 10px !important;
+}
+.ui-icon {
+  padding-left: 10px !important;
+  width: 24px !important;
+  height: 20px !important;
+}
+.ui-icon-triangle-1-e, .ui-icon-triangle-1-s {
+  background-position: 0 !important;
+}
+
+.loader-bg{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.loader{
+  border: 15px solid rgb(255, 255, 255);
+  border-top: 15px solid rgb(124, 195, 217);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+input.ng-invalid.ng-touched,
+input.ng-invalid.ng-dirty {
+  border-color: #dc3545;
+}
+
+.invalid-feedback{
+  display: block;
+}

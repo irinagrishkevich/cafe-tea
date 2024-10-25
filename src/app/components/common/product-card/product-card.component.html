@@ -1,0 +1,13 @@
+<div class="col">
+  <div class="card">
+    <a class="product-item card-img-top"><img src="{{product.image}}" class="card-img-top" alt="image1"></a>
+    <div class="card-body">
+      <h5 class="card-title">{{product.title}}</h5>
+      <p class="card-text">{{product.description | textTransform}}</p>
+      <div class="d-flex justify-content-between align-items-center gap-3">
+        <button class="btn btn-primary w-50" [routerLink]="['/product', product.id]" >Подробнее</button>
+        <button  class="btn btn-primary w-50" [routerLink]="'/order'" [queryParams]="{product: product.title}">Купить</button>
+      </div>
+    </div>
+  </div>
+</div>

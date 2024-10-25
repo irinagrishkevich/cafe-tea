@@ -1,0 +1,96 @@
+<section class="order-page">
+  <div class="container">
+    <h2 *ngIf="formVisible" class="text-center my-5" id="contact">Сделать заказ</h2>
+    <div class="col-lg-6 mx-auto wow animate__slideInRight" id="orderForm">
+      <form *ngIf="formVisible" class="needs-validation" novalidate [formGroup]="formType">
+        <div class="row mb-4">
+          <div class="form-group col-md-12 mb-4">
+            <label for="product">Название Товара</label>
+            <input type="text"
+                   formControlName="product"
+                   class="form-control"
+                   id="product"
+                   name="product" readonly>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="firstName">Имя</label>
+            <input type="text" class="form-control"
+                   id="firstName"
+                   formControlName="name"
+                   name="firstName" isString >
+            <div  class="invalid-feedback" *ngIf="formType.get('name')?.touched && formType.get('name')?.invalid">
+              <span *ngIf="formType.get('name')?.errors?.['required']">Имя обязательный для заполнения</span>
+            </div>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="lastName">Фамилия</label>
+            <input type="text"
+                   class="form-control"
+                   formControlName="last_name"
+                   id="lastName"
+                   name="lastName" isString >
+            <div class="invalid-feedback" *ngIf="formType.get('last_name')?.touched && formType.get('last_name')?.invalid">
+              <span *ngIf="formType.get('last_name')?.errors?.['required']">Фамилия обязательный для заполнения</span>
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="phone">Телефон</label>
+            <input type="tel" class="form-control"
+                   id="phone" name="phone"
+
+                   formControlName="phone"
+                   inputmode="numeric"
+                   maxlength="12"
+                   minlength="11" isNumber>
+            <div class="invalid-feedback" *ngIf="formType.get('phone')?.touched && formType.get('phone')?.invalid">
+              <span *ngIf="formType.get('phone')?.errors?.['required']">Номер обязательный для заполнения</span>
+              <span *ngIf="formType.get('phone')?.errors?.['minlength']">Номер должен содержать минимум 11 цифр</span>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="form-group col-md-6">
+            <label for="country">Страна</label>
+            <input type="text" class="form-control"
+                   formControlName="country"
+                   id="country" name="country" isString>
+            <div class="invalid-feedback" *ngIf="formType.get('country')?.touched && formType.get('country')?.invalid">
+              <span *ngIf="formType.get('country')?.errors?.['required']">Страна обязательно для заполнения</span>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="zipCode">Индекс</label>
+            <input type="text" class="form-control"
+                   formControlName="zip"
+                   maxlength="6"
+                   id="zipCode" name="zipCode">
+            <div class="invalid-feedback" *ngIf="formType.get('zip')?.touched && formType.get('zip')?.invalid">
+              <span *ngIf="formType.get('zip')?.errors?.['required']">Индекс обязательно для заполнения</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group mb-4">
+          <label for="address">Адрес</label>
+          <input type="text" class="form-control"
+                 formControlName="address"
+                 id="address" name="address" isAddress>
+          <div class="invalid-feedback" *ngIf="formType.get('address')?.touched && formType.get('address')?.invalid">
+            <span *ngIf="formType.get('address')?.errors?.['required']">Адрес обязательно для заполнения</span>
+          </div>
+        </div>
+        <textarea class="form-control mb-4" id="message" formControlName="comment" name="message" rows="3" placeholder="Комментарий к заказу"></textarea>
+        <div class="d-flex justify-content-between align-items-center gap-3 mb-5">
+          <button type="button" id="submitBtn" class="btn btn-primary  hvr-back-pulse" (click)="createOrder()">Отправить</button>
+          <div class="text-danger" [ngStyle]="{'display':displayError}">Произошла ошибка. Попробуйте еще раз.</div>
+          <a class=" " [routerLink]="'/products'">Назад</a>
+        </div>
+      </form>
+    </div>
+    <div class="row mx-auto wow animate__slideInRight mt-4" [ngStyle]="{'display':displaySuccess}" id="thanksBlock">
+      <h3 class="text-center mx-auto">Спасибо за заказ!</h3>
+      <h3 class="text-center mx-auto">Мы свяжемся с вами в ближайшее время!</h3>
+      <a class="product-item"><img src="../../../../assets/img/cat-order-confirm.bddffcd7.svg" class="rounded img-fluid mx-auto d-block" alt="image1"></a>
+    </div>
+  </div>
+</section>
