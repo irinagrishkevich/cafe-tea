@@ -1,3 +1,18 @@
+
+app-layout{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+app-order, app-products, app-product, main-component{
+  flex-grow: 1;
+}
+footer-component{
+  flex-grow: 0;
+}
+
+
 .ui-state-active .ui-icon, .ui-button:active .ui-icon {
   background-image: url("assets/img/active.png") !important;
   position: absolute !important;
@@ -22,6 +37,7 @@
 .ui-icon-triangle-1-e, .ui-icon-triangle-1-s {
   background-position: 0 !important;
 }
+
 
 .loader-bg{
   width: 100%;
@@ -59,4 +75,4 @@ input.ng-invalid.ng-dirty {
 }
 
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import 'bootstrap/scss/bootstrap';

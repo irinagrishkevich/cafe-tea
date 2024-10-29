@@ -1,4 +1,4 @@
-<div class="container py-5">
+<div class="container py-5 flex-grow-1">
   <div class="item rounded">
     <img src="assets/img/1banner.png" class="w-100" alt="banner1">
   </div>
@@ -38,22 +38,22 @@
       </div>
     </div>
   </div>
-</div>
-
-<div class="backdrop position-relative" [ngStyle]="{'display':display}"></div>
-<div class="modal position-fixed " tabindex="-1" role="dialog"  [ngStyle]="{'display':display} " (click)="onCloseHandled()">
-  <div class="modal-dialog left-0" role="document">
-    <div class="modal-content">
-      <div class="modal-header d-flex justify-content-between">
-        <h4 class="modal-title">Посмотрите наши чайные коллекции</h4>
-        <button  type="button" class="close btn border-0 bg-transparent " aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default text-bg-primary" [routerLink]="'/products'" >Смотреть</button>
+  <div class="modal position-fixed " tabindex="-1" role="dialog"  [ngStyle]="{'display':display} " (click)="onCloseHandled()">
+    <div class="modal-dialog left-0" role="document">
+      <div class="modal-content">
+        <div class="modal-header d-flex justify-content-between">
+          <h4 class="modal-title">Посмотрите наши чайные коллекции</h4>
+          <button  type="button" class="close btn border-0 bg-transparent " aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default text-bg-primary" [routerLink]="'/products'" >Смотреть</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+
 
 
 

@@ -1,8 +1,11 @@
-<section class="order-page">
+<section class="order-page flex-grow-1 flex-shrink-0 flex-basis-auto">
   <div class="container">
     <h2 *ngIf="formVisible" class="text-center my-5" id="contact">Сделать заказ</h2>
     <div class="col-lg-6 mx-auto wow animate__slideInRight" id="orderForm">
-      <form *ngIf="formVisible" class="needs-validation" novalidate [formGroup]="formType">
+      <form *ngIf="formVisible" class="needs-validation"
+            novalidate
+            (ngSubmit)="createOrder()"
+            [formGroup]="formType">
         <div class="row mb-4">
           <div class="form-group col-md-12 mb-4">
             <label for="product">Название Товара</label>
@@ -81,7 +84,9 @@
         </div>
         <textarea class="form-control mb-4" id="message" formControlName="comment" name="message" rows="3" placeholder="Комментарий к заказу"></textarea>
         <div class="d-flex justify-content-between align-items-center gap-3 mb-5">
-          <button type="button" id="submitBtn" class="btn btn-primary  hvr-back-pulse" (click)="createOrder()">Отправить</button>
+          <button id="submitBtn"
+                  [disabled]="formType.invalid || formType.disabled"
+                  class="btn btn-primary">Отправить</button>
           <div class="text-danger" [ngStyle]="{'display':displayError}">Произошла ошибка. Попробуйте еще раз.</div>
           <a class=" " [routerLink]="'/products'">Назад</a>
         </div>
