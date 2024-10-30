@@ -12,6 +12,9 @@ import {ProductType} from "../../../../types/product.type";
 export class ProductsComponent implements OnInit, OnDestroy {
   public products: ProductType[] = []
   private subscription: Subscription | null = null
+  private subscription2: Subscription | null = null
+  private subscription3: Subscription | null = null
+  message: string = '';
 
   loading: boolean = false
 
@@ -20,6 +23,29 @@ export class ProductsComponent implements OnInit, OnDestroy {
               private router: Router) {}
 
   ngOnInit(): void {
+    this.subscription2 =this.productService.searchProducts().subscribe({
+      next: (products) => {
+        this.products = products;
+        this.message = products.length ? '' : 'Ничего не найдено';
+
+      },
+      error:(error) => {
+        console.error(error);
+        this.message = 'Ошибка загрузки продуктов';
+      }
+    })
+
+    this.subscription3 = this.productService.searchTerm$.subscribe(() => {
+      this.productService.searchProducts().subscribe((products) => {
+        this.products = products;
+        this.message = products.length ? '' : 'Ничего не найдено';
+      });
+    });
+
+
+
+
+
       this.loading = true
       this.subscription = this.productService.getProducts()
         .pipe(
@@ -40,6 +66,8 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription?.unsubscribe();
+    this.subscription2?.unsubscribe();
+    this.subscription3?.unsubscribe();
   }
 
 }
